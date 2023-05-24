@@ -4,13 +4,16 @@ import Home from "./pages/Home/Home";
 
 const App = () => {
 	return (
-		<div className="">
+		<>
 			<Header />
 			<div className="flex items-center justify-space-between space-x-5">
 				<Sidebar />
-				<Home />
+				<div className="flex flex-col">
+					<Home />
+					{/* <Footer /> */}
+				</div>
 			</div>
-		</div>
+		</>
 	);
 };
 

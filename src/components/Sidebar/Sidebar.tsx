@@ -1,4 +1,4 @@
-import ButtonRed from "../Header/Buttons/ButtonRed";
+import ButtonRed from "../Buttons/ButtonRed";
 import Section from "../Section/Section";
 
 const Sidebar = () => {
@@ -6,7 +6,7 @@ const Sidebar = () => {
 		// Sidebar container
 		<div
 			style={{ borderRight: "1px solid #323B45" }}
-			className="flex flex-col items-center justify-start h-screen w-[230px] gap-6 pt-5 "
+			className="fixed flex flex-col items-center justify-start h-screen w-[230px] gap-6 z-30 bg-bg_color top-[70px] pt-8"
 		>
 			<ButtonRed>💵 Ganhe $ Grátis</ButtonRed>
 			{/* Sections */}

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import logoBlaze from "../../assets/logo-blaze.png";
-import ButtonRed from "./Buttons/ButtonRed";
+import ButtonRed from "../Buttons/ButtonRed";
 import { Menu } from "lucide-react";
 
 const Header = () => {
@@ -11,7 +11,7 @@ const Header = () => {
 	return (
 		<header
 			style={{ borderBottom: "1px solid #323B45" }}
-			className="flex items-center justify-between h-[70px] w-full py-3 px-6"
+			className="fixed flex items-center justify-between h-[70px] w-full py-3 px-6 z-20 bg-bg_color"
 		>
 			{/* Left header session */}
 			<div className="font-semibold text-xs uppercase flex items-center space-x-8">
