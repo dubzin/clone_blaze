@@ -1,12 +1,22 @@
-import { useState } from "react";
 import logoBlaze from "../../assets/logo-blaze.png";
 import ButtonRed from "../Buttons/ButtonRed";
 import { Menu } from "lucide-react";
+import { useContext } from "react";
+import { CiBasketball } from "react-icons/ci";
+import { GiCardBurn } from "react-icons/gi";
+import { ContextProvider } from "../../Context/Context";
 
 const Header = () => {
-	const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+	const contextObj = useContext(ContextProvider);
 
-	const handleMenuOpen = () => {};
+	const setMenuOpen = contextObj?.setIsMenuOpen;
+	const menuOpen = contextObj?.isMenuOpen;
+
+	const handleMenuOpen = () => {
+		setMenuOpen(!menuOpen);
+	};
+
+	console.log(menuOpen);
 
 	return (
 		<header
@@ -15,12 +25,25 @@ const Header = () => {
 		>
 			{/* Left header session */}
 			<div className="font-semibold text-xs uppercase flex items-center space-x-8">
-				<a href="#">Cassino</a>
-				<a href="#" className="pr-4 text-white/75">
-					Esportes
+				<a
+					href="#"
+					className="flex items-center justify-between gap-2"
+				>
+					<GiCardBurn className="text-xl" />
+					<h1>Cassino</h1>
+				</a>
+				<a
+					href="#"
+					className="pr-4 text-white/75 flex items-center justify-between gap-2"
+				>
+					<CiBasketball className="text-xl" />
+					<h1>Esportes</h1>
 				</a>
 				<div className="flex items-center space-x-5">
-					<Menu className="h-8 w-8 rounded-full p-1 transition-colors hover:bg-white/40  cursor-pointer " />
+					<Menu
+						onClick={handleMenuOpen}
+						className="h-8 w-8 rounded-full p-1 transition-colors hover:bg-white/10  cursor-pointer "
+					/>
 					<img src={logoBlaze} alt="Logo blaze" />
 				</div>
 			</div>

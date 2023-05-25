@@ -1,5 +1,6 @@
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 interface SectionProps {
 	title: string;
@@ -21,26 +22,61 @@ const Section = ({ title }: SectionProps) => {
 			</div>
 			{/* Section content */}
 			{isSectionOpen && (
-				<div className="mt-1 mb-5 space-y-4 px-9 font-semibold text-sm text-text/75">
-					<div className="flex items-center justify-start gap-5">
+				<motion.div
+					initial={{ height: 0 }}
+					animate={{ height: "260px" }}
+					transition={{
+						type: "spring",
+						stiffness: 260,
+						damping: 20,
+					}}
+					className="mb-5 space-y-5 px-9 font-semibold text-sm text-text/75"
+				>
+					<a
+						href="#"
+						className="flex items-center justify-start "
+					>
 						Crash
-					</div>
-					<div className="flex items-center justify-start gap-5">
-						Crash
-					</div>
-					<div className="flex items-center justify-start gap-5">
-						Crash
-					</div>
-					<div className="flex items-center justify-start gap-5">
-						Crash
-					</div>
-					<div className="flex items-center justify-start gap-5">
-						Crash
-					</div>
-				</div>
+					</a>
+					<a
+						href="#"
+						className="flex items-center justify-start "
+					>
+						Double
+					</a>
+					<a
+						href="#"
+						className="flex items-center justify-start "
+					>
+						Mines
+					</a>
+					<a
+						href="#"
+						className="flex items-center justify-start "
+					>
+						Dice
+					</a>
+					<a
+						href="#"
+						className="flex items-center justify-start "
+					>
+						Plink
+					</a>
+					<a
+						href="#"
+						className="flex items-center justify-start "
+					>
+						Limbo
+					</a>
+					<a
+						href="#"
+						className="flex items-center justify-start "
+					>
+						Tower
+					</a>
+				</motion.div>
 			)}
 			{/* Section line */}
-
 			<div className="h-[1px] bg-border mt-2 w-full top-7" />
 		</div>
 	);

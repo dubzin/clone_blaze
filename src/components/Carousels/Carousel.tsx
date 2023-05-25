@@ -1,4 +1,5 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useRef } from "react";
 
 interface CarouselProps {
 	title: string;
@@ -6,6 +7,21 @@ interface CarouselProps {
 }
 
 const Carousel = ({ title, children }: CarouselProps) => {
+	const carousel: React.RefObject<HTMLDivElement> =
+		useRef<HTMLDivElement>(null);
+
+	const handleLeftSwap = () => {
+		if (carousel.current) {
+			carousel.current.scrollLeft -= carousel.current.offsetWidth;
+		}
+	};
+
+	const handleRightSwap = () => {
+		if (carousel.current) {
+			carousel.current.scrollLeft += carousel.current.offsetWidth;
+		}
+	};
+
 	return (
 		<>
 			{/* Carousel Container */}
@@ -14,11 +30,17 @@ const Carousel = ({ title, children }: CarouselProps) => {
 				<div className="flex items-center justify-between w-full mb-5">
 					{/* left */}
 					<div className="flex items-center space-x-5 ">
-						<h1 className="text-xl font-medium">{title}</h1>
+						<h1 className="text-xl font-bold">{title}</h1>
 						{/* Carousel Controls */}
 						<div className="flex items-center text-text w-10">
-							<ChevronLeft />
-							<ChevronRight />
+							<ChevronLeft
+								onClick={handleLeftSwap}
+								className="cursor-pointer opacity-40 transition-all hover:opacity-100"
+							/>
+							<ChevronRight
+								onClick={handleRightSwap}
+								className="cursor-pointer opacity-40 transition-all hover:opacity-100"
+							/>
 						</div>
 					</div>
 					{/* Right */}
@@ -30,7 +52,10 @@ const Carousel = ({ title, children }: CarouselProps) => {
 					</div>
 				</div>
 				{/* Carousel content */}
-				<div className="max-w-full flex items-center justify-start space-x-5 overflow-x-auto shrink-0 scroll-smooth">
+				<div
+					ref={carousel}
+					className="max-w-full flex items-center justify-start space-x-7 overflow-hidden shrink-0 scroll-smooth"
+				>
 					{children}
 				</div>
 			</div>

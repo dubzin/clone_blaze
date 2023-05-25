@@ -7,6 +7,7 @@ export default {
 				bg_color: "#0F1923",
 				green: "#00B574",
 				red: "#F12C4C",
+				red_hovered: "#971b30",
 				gray: "#1D2730",
 				text: "#BCBFC7",
 				border: "#323B45",
